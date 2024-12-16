@@ -1,0 +1,72 @@
+action_space:
+  allow_diagonals: False
+  land_action: False
+drone:
+  battery_usage_flying: 0.2
+  battery_usage_landing: 0.2
+  confidence_threshold: 0.5
+  fov:
+    height: 11
+    width: 11
+  initial_battery_level: 75
+  start_mode: in_start_zone
+rewards:
+  coverage: 0.0
+  discovered_objects_tp: 1.0
+  discovered_objects_fp: 0.0
+  empty_battery: -150.0
+  fly_action: -0.5
+  hit_no_fly_zone: -1.0
+  undiscovered_objects: 0.0
+  normalize_objects: true
+state_space:
+  global_map_reduce: 3
+  add_start_landing_zone: False
+world:
+  type: "SimWorld"
+  from_file: null
+  n_objects:
+    dist_kwargs:
+      loc: 100
+      scale: 30
+    dist_type: normal
+  n_patches:
+    dist_kwargs:
+      loc: 3
+      scale: 2
+    dist_type: normal
+  objects_in_patch_position:
+    dist_kwargs:
+      cov:
+        - [[5, 8], [8, 15]]
+        - [[15, 0], [0, 5]]
+    dist_type: multivariate_normal
+  prior_knowledge:
+    from_file: null
+    size:
+      height: 12
+      width: 12
+    uncertainty:
+      position: 0.5
+      false_positives: 0.001
+      false_negatives: 0.20
+  observation_uncertainty:
+    position: 1.0
+    false_positives: 0.01
+    false_negatives: 0.5
+  size:
+    height: 48
+    width: 48
+  start_landing_zones:
+    - h: 3
+      w: 3
+      x: 1
+      y: 2
+    - h: 3
+      w: 3
+      x: -4
+      y: -4
+stopping_criteria:
+  method: objects
+  value: 1.0
+  only_land_in_zone: False

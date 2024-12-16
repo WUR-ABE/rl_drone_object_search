@@ -1,0 +1,91 @@
+############################### Drone parameters ###############################
+drone:
+  fov:
+    height: 11
+    width: 11
+  start_mode: in_start_zone # [top_left, random, at_border, in_start_zone]
+  initial_battery_level: 150
+  battery_usage_flying: 0.2
+  battery_usage_landing: 0.2
+  confidence_threshold: 0.5 # To count detection as found object
+
+############################### World parameters ###############################
+world:
+  type: "SimWorld"
+
+  from_file: null # Use null to create random world
+
+  size:
+    height: 48
+    width: 64
+
+  # Start - landing zone coordinates, xy are topleft, when negative from other side of map
+  start_landing_zones:
+    - { x: 1, y: 2, h: 3, w: 3 }
+    - { x: -4, y: -4, h: 3, w: 3 }
+
+  # Distribution of the number of object patches. Distributions can either be 'normal' or 'multivariate_normal'. For
+  # normal distribution, define the mean ('loc') and the standard deviation ('scale'). For multivariate normal distribution
+  # define the mean ('loc') and the covariance matrix ('cov').
+  n_patches:
+    dist_type: normal
+    dist_kwargs:
+      loc: 2
+      scale: 0
+
+  n_objects:
+    dist_type: normal
+    dist_kwargs:
+      loc: 200
+      scale: 0
+
+  # Distribution of the position of the objects within a specific patch.
+  objects_in_patch_position:
+    # dist_type: uniform
+    dist_type: multivariate_normal
+    dist_kwargs:
+      cov:
+        - [[5, 8], [8, 20]]
+        - [[20, 0], [0, 5]]
+
+  prior_knowledge:
+    from_file: null
+    size:
+      height: 48
+      width: 64
+    uncertainty:
+      position: 0.0 # standard deviation 0 +/- std
+      false_positives: 0.0 # percentage (between 0 - 1)
+      false_negatives: 0.0 # percentage (between 0 - 1)
+
+  observation_uncertainty:
+    position: 0.0 # standard deviation 0 +/- std
+    false_positives: 0.0 # percentage (between 0 - 1)
+    false_negatives: 0.0 # percentage (between 0 - 1)
+
+############################## State-space parameters ##############################
+state_space:
+  global_map_reduce: 3
+  add_start_landing_zone: True
+
+############################## Action-space parameters ##############################
+action_space:
+  allow_diagonals: False
+  land_action: True
+
+############################## Reward-space parameters ##############################
+rewards:
+  hit_no_fly_zone: -1.0
+  empty_battery: -150.0
+  coverage: 0.025
+  fly_action: -0.2
+  discovered_objects_tp: 1.0
+  discovered_objects_fp: 0.0
+  undiscovered_objects: 0.0
+  normalize_objects: false
+
+############################## Stopping criteria ##############################
+stopping_criteria:
+  method: land # [objects, coverage, land, none]
+  value: 1.0 # Percentage [0-1]
+  only_land_in_zone: True

@@ -1,0 +1,26 @@
+{
+    "editor.formatOnSave": true,
+    "files.autoSave": "onFocusChange",
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/logs/**": true,
+        "**/runs/**": true
+    },
+    "python.analysis.autoImportCompletions": false,
+    "python.defaultInterpreterPath": "/usr/bin/python3.10",
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "[xml]": {
+        "editor.defaultFormatter": "redhat.vscode-xml"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "workbench.editor.enablePreview": false,
+    "notebook.defaultFormatter": "ms-python.black-formatter",
+}

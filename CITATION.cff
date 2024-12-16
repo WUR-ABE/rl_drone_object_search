@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: If you use this software, please cite both the article from preferred-citation and the software itself.
+authors:
+  - family-names: van Essen
+    given-names: Rick
+    orcid: 'https://orcid.org/0000-0002-5177-4271'
+  - family-names: van Henten
+    given-names: Eldert
+    orcid: 'https://orcid.org/0000-0002-1623-9855'
+  - family-names: Kootstra
+    given-names: Gert
+    orcid: 'https://orcid.org/0000-0002-2579-4324'
+title: 'Learning UAV-based path planning for efficient localization of objects using prior knowledge'
+version: 1.0.0
+url: TODO
+date-released: '2024-12-16'
+preferred-citation:
+  authors:
+    - family-names: van Essen
+      given-names: Rick
+      orcid: 'https://orcid.org/0000-0002-5177-4271'
+    - family-names: van Henten
+      given-names: Eldert
+      orcid: 'https://orcid.org/0000-0002-1623-9855'
+    - family-names: Kootstra
+      given-names: Gert
+      orcid: 'https://orcid.org/0000-0002-2579-4324'
+  title: 'Learning UAV-based path planning for efficient localization of objects using prior knowledge'
+  url: TODO
+  type: generic
+  year: 2024

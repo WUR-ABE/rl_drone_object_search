@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "tamasfe.even-better-toml",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-python.vscode-pylance",
+        "mechatroner.rainbow-csv"
+    ]
+}

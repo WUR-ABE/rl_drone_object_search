@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+description = "Gym environment for drone simulation with global prior knowledge and local image detections."
+name = "drone-grid-env"
+authors = [{ name = "Rick van Essen", email = "rick.vanessen@wur.nl" }]
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["drone", "path planning", "adaptive", "deep learning"]
+license = { text = "MIT" }
+classifiers = [
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Games/Entertainment :: Simulation",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Software Development :: Libraries :: pygame",
+  "Typing :: Typed",
+]
+
+dynamic = ["dependencies", "version"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+version = { attr = "drone_grid_env.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["drone_grid_env", "sb3_custom"]
+
+[tool.black]
+exclude = '''
+(
+  /(
+      \.mypy_cache
+    | \.pytest_cache
+    | \.pytest_cov
+    | venv
+    | Fields2Cover
+  )/
+)
+'''
+include = '\.pyi?$'
+line-length = 150
+target-version = ["py310"]
+
+[tool.isort]
+extra_standard_library = ["toml", "yaml", "setuptools"]
+known_frameworks = ["stable_baselines3", "rl_zoo3"]
+known_gym = ["gym", "gymnasium"]
+known_torch = ["torch", "torchvision"]
+line_length = 150
+profile = "black"
+sections = [
+  "FUTURE",
+  "STDLIB",
+  "THIRDPARTY",
+  "TORCH",
+  "GYM",
+  "FRAMEWORKS",
+  "FIRSTPARTY",
+  "LOCALFOLDER",
+]
+skip_gitignore = true
+src_paths = ["drone_grid_env", "sb3_custom"]
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = "C0103, C0114, C0115, C0116, C0330, C0326, R0801, R0913"
+extension-pkg-whitelist = "cv2, numpy"
+max-line-length = 150
+
+[tool.mypy]
+exclude = "venv|build|wandb|tmp*.py"
+ignore_missing_imports = true
+overrides = [{ ignore_errors = true, module = "cv2" }]
+plugins = "numpy.typing.mypy_plugin"
+python_version = "3.10"
+warn_redundant_casts = true
+warn_return_any = false
+warn_unused_configs = true
