@@ -50,7 +50,7 @@ Use ASDW to move the drone 1 step in each direction and L to land the drone (whe
 If you find this code usefull, please consider citing our paper:
 ```
 @misc{essen2024,
-    title = Learning UAV-based path planning for efficient localization of objects using prior knowledge,
+    title = {Learning UAV-based path planning for efficient localization of objects using prior knowledge},
     urldate = {2024-12-17},
     publisher = {arXiv},
     author = {van Essen, Rick and van Henten, Eldert and Kootstra, Gert},
