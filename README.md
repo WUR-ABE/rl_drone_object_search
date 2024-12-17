@@ -2,10 +2,10 @@
 ![drone-grid-env](assets/drone-grid-env.gif "drone-grid-env")
 > **Learning UAV-based path planning for efficient localization of objects using prior knowledge**\
 > Rick van Essen, Eldert van Henten, and Gert Kootstra
-> Paper: TODO
+> Paper: https://arxiv.org/abs/2412.11717
 
 ## About
-Official implementation of the paper 'Learning UAV-based path planning for efficient localization of objects using prior knowledge'. It contains the simulation environment and the code to train and reproduce the results of the paper. 
+This is the code belonging to the paper 'Learning UAV-based path planning for efficient localization of objects using prior knowledge'. It contains the simulation environment and the code to train and reproduce the results of the paper. 
 
 ## Installation
 Python 3.10 or higher is needed with all dependencies listed in [`requirements.txt`](requirements.txt). Install using:
@@ -56,6 +56,6 @@ If you find this code usefull, please consider citing our paper:
     author = {van Essen, Rick and van Henten, Eldert and Kootstra, Gert},
     month = dec,
     year = {2024},
-    note = {arXiv:TODO [cs]},
+    note = {arXiv:2412.11717 [cs]},
 }
 ```
