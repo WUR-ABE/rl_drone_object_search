@@ -26,8 +26,7 @@
 	// Override LD_LIBRARY_PATH and PATH to fix CUDNN
 	"remoteEnv": {
 		"LD_LIBRARY_PATH": "/home/abe/.local/lib/python3.10/site-packages/nvidia/cublas/lib:/home/abe/.local/lib/python3.10/site-packages/nvidia/cudnn/lib",
-		"PATH": "/home/abe/.local/bin:${containerEnv:PATH}",
-		"WANDB_API_KEY": "719aae40d8e2c5e33e99ddf1caea94fd7b5b9f3a"
+		"PATH": "/home/abe/.local/bin:${containerEnv:PATH}"
 	},
 	"postCreateCommand": "bash /opt/entrypoint.sh /bin/true; bash .devcontainer/post-create.sh",
 	"remoteUser": "abe",
