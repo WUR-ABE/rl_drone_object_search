@@ -61,6 +61,6 @@ If you find this code usefull, please consider citing our paper:
 ```
 
 ## Funding
-This research is part of the research program SYNERGIA, funding for this research was obtained from the Dutch Research Council (NWO grant 17626), IMEC-One Planet and other private parties.
+This research is part of the research program SYNERGIA, funding was obtained from the Dutch Research Council (NWO grant 17626), IMEC-One Planet and other private parties.
 
 <img src="assets/wageningen_logo.png" alt="wageningen university logo" height="50"> &nbsp;&nbsp;&nbsp; <img src="assets/synergia_logo_basis.png" alt="synergia logo" height="50">
