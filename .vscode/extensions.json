@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "charliermarsh.ruff",
+        "redhat.vscode-yaml",
+        "redhat.vscode-xml",
+        "mutantdino.resourcemonitor",
+        "wayou.vscode-todo-highlight",
+        "tamasfe.even-better-toml",
+        "tomoki1207.pdf"
+    ]
+}

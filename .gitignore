@@ -1,0 +1,31 @@
+/build
+/drone_grid_env.egg-info
+/venv
+/training*
+/logs
+/runs
+/wandb
+/.ipynb_checkpoints
+/.vscode/*
+/evaluations*
+/figures*
+/paper_*
+/generated_prior_knowledge
+
+# Ignore specific files
+*report.txt
+tmp.py
+tmp.ipynb
+yolov8n.pt
+yolo11n.pt
+
+# Ignore file extensions
+*.pyc
+*.zip
+*.mp4
+*.gif
+
+# Don't ignore these files
+!.vscode/extensions.json
+!.vscode/settings.json
+!assets/drone-grid-env-with-orthomosaic.gif

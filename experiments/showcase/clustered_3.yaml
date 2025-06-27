@@ -1,0 +1,67 @@
+action_space:
+  allow_diagonals: false
+  land_action: true
+drone:
+  battery_usage_flying: 0.2
+  battery_usage_landing: 0.2
+  confidence_threshold: 0.5
+  fov:
+    height: 11
+    width: 11
+  initial_battery_level: 75
+  start_mode: in_start_zone
+rewards:
+  coverage: 0.0
+  discovered_objects_fp: 0.0
+  discovered_objects_tp: 1.0
+  empty_battery: -150.0
+  fly_action: -0.5
+  hit_no_fly_zone: -1.0
+  normalize_objects: true
+  undiscovered_objects: 0.0
+state_space:
+  add_start_landing_zone: false
+  global_map_reduce: 3
+stopping_criteria:
+  method: land
+  only_land_in_zone: false
+  value: 1.0
+world:
+  camera:
+    height: 2048
+    width: 2048
+  crs: epsg:32631
+  min_conf: 0.05
+  name: clustered_3
+  objects_file: $DATA_HOME/20240718_clustered_3/plants_clustered_3_RDNAPTRANS2008.csv
+  origin:
+    easting: 683170.7558638013
+    northing: 5763399.881294211
+  prior_knowledge:
+    camera:
+      height: 2048
+      width: 2048
+    confidence_threshold: 0.05
+    coverage_fov:
+      height: 24
+      width: 24
+    size:
+      height: 12
+      width: 12
+  rotation: 20
+  scale: 1.0
+  scheme_file: $DATA_HOME/20240718_clustered_3/orthomosaic_12m/12m_utm-scheme.kml
+  size:
+    height: 48
+    width: 48
+  start_landing_zones:
+    - h: 3
+      w: 3
+      x: 1
+      y: 2
+    - h: 3
+      w: 3
+      x: -4
+      y: -4
+  type: OrthomosaicWorld
+  yolo_weights_file: best_n.pt

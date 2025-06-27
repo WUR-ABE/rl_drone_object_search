@@ -1,0 +1,44 @@
+gymnasium
+matplotlib>=3.6.0  # https://github.com/matplotlib/matplotlib/issues/25038
+moviepy>=1.0.3,<2.0.0
+decorator==4.4.2  # To fix moviepy
+numpy
+opencv-python
+pyyaml
+pygame>=2.2.0
+scikit-image
+scipy>=0.14.0
+tabulate
+pandas
+torch
+stable_baselines3
+rl_zoo3
+sb3_contrib
+wandb
+seaborn 
+tensorboard       # Required by rl_zoo3
+requests          # Required by rl_zoo3
+tqdm
+scikit-learn
+simplekml 
+pandas
+lxml
+typed-argument-parser
+rasterio<=1.3.11  # https://github.com/rasterio/rasterio/issues/3211
+shapely 
+tilemapbase
+ultralytics
+tkintermapview
+
+# Jupyter notebook
+IProgress
+ipywidgets
+jupyterlab
+
+# Development dependencies
+mypy
+pylint
+types-pyyaml
+types-toml
+types-tabulate
+typing_extensions>=4.0.0

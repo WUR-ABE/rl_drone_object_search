@@ -1,0 +1,57 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+// Adapted from: https://github.com/LCAS/ros-docker-images
+{
+	"name": "ABE CUDA-OpenGL Devcontainer",
+	"build": {
+		"dockerfile": "./Dockerfile",
+		"args": {
+			"BASE_IMAGE": "nvidia/cuda:12.6.2-runtime-ubuntu24.04"
+		},
+		"context": ".."
+	},
+	"forwardPorts": [
+		5801
+	],
+	"portsAttributes": {
+		"5801": {
+			"label": "desktop",
+			"onAutoForward": "openBrowser"
+		}
+	},
+	"mounts": [
+		"source=${localEnv:HOME}/.ssh,target=/home/abe/.ssh,type=bind,consistency=cached,readonly",
+		"source=${localEnv:HOME}/.gitconfig,target=/home/abe/.gitconfig,type=bind,consistency=cached,readonly",
+		// "source=/media/rick/DATA_RICK/adaptive-planning/,target=/home/abe/data,type=bind,consistency=cached,readonly"  // Replace with path to the orthomosaics
+	],
+	// Override LD_LIBRARY_PATH and PATH to fix CUDNN
+	"remoteEnv": {
+		"LD_LIBRARY_PATH": "/home/abe/.local/lib/python3.12/site-packages/nvidia/cublas/lib:/home/abe/.local/lib/python3.12/site-packages/nvidia/cudnn/lib",
+		"PATH": "/home/abe/.local/bin:${containerEnv:PATH}",
+		"WANDB_API_KEY": "xxx", // Replace with your own API key
+		"DATA_HOME": "/home/abe/data"
+	},
+	"postCreateCommand": "bash /opt/entrypoint.sh /bin/true; bash .devcontainer/post-create.sh",
+	"remoteUser": "abe",
+	"updateRemoteUserUID": true,
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-toolsai.jupyter",
+				"charliermarsh.ruff",
+				"redhat.vscode-yaml",
+				"redhat.vscode-xml",
+				"mutantdino.resourcemonitor",
+				"wayou.vscode-todo-highlight",
+				"tamasfe.even-better-toml",
+				"tomoki1207.pdf"
+			]
+		}
+	},
+	"hostRequirements": {
+		"gpu": "optional",
+		"cpus": 2,
+		"memory": "8gb"
+	}
+}

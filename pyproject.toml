@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+description = "Gym environment for drone simulation with global prior knowledge and local image detections."
+name = "drone-grid-env"
+authors = [{ name = "Rick van Essen", email = "rick.vanessen@wur.nl" }]
+readme = "README.md"
+requires-python = ">=3.12"
+keywords = ["drone", "path planning", "adaptive", "deep learning"]
+license = { text = "MIT" }
+classifiers = [
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Games/Entertainment :: Simulation",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Software Development :: Libraries :: pygame",
+  "Typing :: Typed",
+]
+
+dynamic = ["dependencies", "version"]
+
+[project.scripts]
+draw_field = "drone_grid_env.utils.draw_field:main"
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+version = { attr = "drone_grid_env.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["drone_grid_env", "sb3_custom"]
+
+[tool.ruff]
+line-length = 140
+exclude = ["build", "evaluations", "trainings"]
+
+[tool.ruff.lint.flake8-import-conventions.extend-aliases]
+torch = "th"
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+combine-as-imports = true
+extra-standard-library = ["toml", "yaml", "tap", "setuptools"]
+section-order = [
+  "future",
+  "standard-library",
+  "torch_numpy",
+  "third-party",
+  "first-party",
+  "local-folder",
+]
+
+[tool.ruff.lint.isort.sections]
+torch_numpy = [
+  "cv2",
+  "numpy",
+  "fields2cover",
+  "torch",
+  "torchvision",
+  "matplotlib",
+  "gymnasium",
+]
+
+[tool.mypy]
+exclude = "venv|build|wandb|tmp*.py"
+ignore_missing_imports = true
+overrides = [{ ignore_errors = true, module = "cv2" }]
+plugins = "numpy.typing.mypy_plugin"
+python_version = "3.12"
+warn_redundant_casts = true
+warn_return_any = false
+warn_unused_configs = true
