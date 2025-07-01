@@ -54,7 +54,7 @@ If you find this code usefull, please consider citing our paper:
 ```
 @article{vanEssen2025,
     author = {van Essen, Rick and van Henten, Eldert and Kootstra, Gert},
-    title = {UAV-based path planning for efficient localization of non-uniformly distributed weeds using prior knowledge: A reinforcement-learning approach},
+    title = {{UAV}-based path planning for efficient localization of non-uniformly distributed weeds using prior knowledge: A reinforcement-learning approach},
     journal = {Computers and Electronics in Agriculture},
     volume = {237},
     pages = {110651},
